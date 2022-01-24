@@ -4,438 +4,226 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tarot Wiki</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+    
     <nav id="navbar">
-        <header>JS Documentation</header>
+        <header>Особенности сетевых атак</header>
         <ul>
-          <li><a class="nav-link" href="#Introduction">Introduction</a></li>
+          <li><a class="nav-link" href="#Введение">Введение</a></li>
+          <li><a class="nav-link" href="#Классификация_атак">Классификация атак</a></li>
           <li>
-            <a class="nav-link" href="#What_you_should_already_know"
-              >What you should already know</a
-            >
+            <a class="nav-link small" href="#По_характеру_воздействия">По характеру воздействия</a>
           </li>
+          <li><a class="nav-link small" href="#По_цели_воздействия">По цели воздействия</a></li>
+          <li><a class="nav-link small" href="#По_наличию_обратной_связи">По наличию обратной связи</a></li>
           <li>
-            <a class="nav-link" href="#JavaScript_and_Java">JavaScript and Java</a>
+            <a class="nav-link small" href="#По_условию_начала_осуществления_воздействия">По условию начала осуществления воздействия</a>
           </li>
-          <li><a class="nav-link" href="#Hello_world">Hello world</a></li>
-          <li><a class="nav-link" href="#Variables">Variables</a></li>
-          <li>
-            <a class="nav-link" href="#Declaring_variables">Declaring variables</a>
-          </li>
-          <li><a class="nav-link" href="#Variable_scope">Variable scope</a></li>
-          <li><a class="nav-link" href="#Global_variables">Global variables</a></li>
-          <li><a class="nav-link" href="#Constants">Constants</a></li>
-          <li><a class="nav-link" href="#Data_types">Data types</a></li>
-          <li>
-            <a class="nav-link" href="#if...else_statement">if...else statement</a>
-          </li>
-          <li><a class="nav-link" href="#while_statement">while statement</a></li>
-          <li>
-            <a class="nav-link" href="#Function_declarations"
-              >Function declarations</a
-            >
-          </li>
-          <li><a class="nav-link" href="#Reference">Reference</a></li>
+          <li><a class="nav-link small" href="#По_расположению_субъекта_атаки_относительно_атакуемого_объекта">По расположению субъекта атаки относительно атакуемого 
+            объекта</a></li>
+          <li><a class="nav-link" href="#Краткое_описание_некоторых_сетевых_атак">Краткое описание некоторых сетевых атак</a></li>
+          <li><a class="nav-link small" href="#Фрагментация_данных">Фрагментация данных</a></li>
+          <li><a class="nav-link small" href="#Ping_flooding">Ping flooding</a></li>
+          <li><a class="nav-link small" href="#Smurf">Smurf</a></li>
+          <li><a class="nav-link small" href="#DNS_spoofing">DNS spoofing</a></li>
+          <li><a class="nav-link small" href="#IP_spoofing">IP spoofing</a></li>
+          <li><a class="nav-link small" href="#Sniffing">Sniffing</a></li>
+          <li><a class="nav-link small" href="#Перехват_пакетов_на_маршрутизаторе">Перехват пакетов на маршрутизаторе</a></li>
+          <li><a class="nav-link small" href="#Навязывание_хосту_ложного_маршрута">Навязывание хосту ложного маршрута</a></li>
+          <li><a class="nav-link small" href="#Подмена_доверенного_хоста">Подмена доверенного хоста</a></li>
+          <li><a class="nav-link" href="#Список_использованной_литературы">Список использованной литературы</a></li>
         </ul>
       </nav>
       <main id="main-doc">
-        <section class="main-section" id="Introduction">
-          <header>Introduction</header>
+        <section class="main-section" id="Введение">
+          <header>Введение</header>
           <article>
             <p>
-              JavaScript is a cross-platform, object-oriented scripting language. It
-              is a small and lightweight language. Inside a host environment (for
-              example, a web browser), JavaScript can be connected to the objects of
-              its environment to provide programmatic control over them.
+              Как известно, в современном мире информация является одним из важнейших ресурсов. Еще в XIX веке Н. Ротшильд сказал «Кто владеет информацией, тот владеет миром». С развитием сети Интернет, глобальных коммуникаций и переводом финансовых расчетов, работы бирж, банков и прочих организаций в online режим, актуальной стала проблема защиты информации как подобных организаций, так и частных лиц от кражи, перехвата, изменения и уничтожения.
             </p>
-      
             <p>
-              JavaScript contains a standard library of objects, such as Array, Date,
-              and Math, and a core set of language elements such as operators, control
-              structures, and statements. Core JavaScript can be extended for a
-              variety of purposes by supplementing it with additional objects; for
-              example:
+              Повсеместно для организации коммуникаций в неоднородной сетевой среде применяется набор протоколов TCP/IP, обеспечивающий совместимость между компьютерами разных типов. Данный набор протоколов является стандартом для межсетевого взаимодействия. Однако популярность стека протоколов TCP/IP обнажила и его слабые стороны. В особенности из-за этого удалённым атакам подвержены распределённые системы, поскольку их компоненты обычно используют открытые каналы передачи данных, и нарушитель может не только проводить пассивное прослушивание передаваемой информации, но и модифицировать передаваемый трафик.
             </p>
+            <p>
+              Трудность выявления проведения удалённой атаки и относительная простота проведения (из-за избыточной функциональности современных систем) выводит этот вид неправомерных действий на первое место по степени опасности и препятствует своевременному реагированию на осуществлённую угрозу, в результате чего у нарушителя увеличиваются шансы успешной реализации атаки.
+            </p>
+          </article>
+        </section>
+        <section class="main-section" id="Классификация_атак">
+          <header>Классификация атак</header>
+        </section>
+        <section class="main-section" id="По_характеру_воздействия">
+          <header>По характеру воздействия</header>
+          <article>
+            <p>Пассивное воздействие на распределённую вычислительную систему представляет собой некоторое воздействие, не оказывающее прямого влияния на работу системы, но в то же время способное нарушить её политику безопасности. Отсутствие прямого влияния на работу такой вычислительной системы приводит именно к тому, что пассивное удалённое воздействие трудно обнаружить. Возможным примером типового пассивного удаленного воздействия в распределённой вычислительной системе служит прослушивание канала связи в сети.</p>
+            <p>Активное воздействие на распределённую вычислительную систему — воздействие, оказывающее прямое влияние на работу самой системы (нарушение работоспособности, изменение конфигурации системы и т. д.), которое нарушает политику безопасности, принятую в ней. Активными воздействиями являются почти все типы удалённых атак. Связано это с тем, что в саму природу наносящего ущерб воздействия включается активное начало. </p>
+            <p>Явное отличие активного воздействия от пассивного — принципиальная возможность его обнаружения, так как в результате его осуществления в системе происходят некоторые изменения. При пассивном же воздействии, не остается совершенно никаких следов (из-за того, что атакующий просмотрит чужое сообщение в системе, в тот же момент не изменится собственно ничего).</p>
+          </article>
+        </section>
+        <section class="main-section" id="По_цели_воздействия">
+          <header>По цели воздействия</header>
+          <article>
+            <p>Выделяют следующие цели воздействия:</p>
             <ul>
-              <li>
-                Client-side JavaScript extends the core language by supplying objects
-                to control a browser and its Document Object Model (DOM). For example,
-                client-side extensions allow an application to place elements on an
-                HTML form and respond to user events such as mouse clicks, form input,
-                and page navigation.
-              </li>
-              <li>
-                Server-side JavaScript extends the core language by supplying objects
-                relevant to running JavaScript on a server. For example, server-side
-                extensions allow an application to communicate with a database,
-                provide continuity of information from one invocation to another of
-                the application, or perform file manipulations on a server.
-              </li>
+              <li>нарушение функционирования системы (доступа к системе);</li>
+              <li>нарушение целостности информационных ресурсов;</li>
+              <li>нарушение конфиденциальности информационных ресурсов;</li>
             </ul>
+            <p>Этот признак, по которому производится классификация, по сути, есть прямая проекция трех базовых разновидностей угроз — отказа в обслуживании, раскрытия и нарушения целостности.</p>
+            <p>Главная цель, которую преследуют практически при любой атаке — получение несанкционированный доступ к информации. Существуют два принципиальных варианта получения информации: искажение и перехват. Вариант перехвата информации означает получение к ней доступа без возможности ее изменения. Перехват информации приводит, следовательно, к нарушению ее конфиденциальности. Прослушивание канала в сети — пример перехвата информации. В этом случае имеется нелегитимный доступ к информации без возможных вариантов ее подмены. Очевидно также, что нарушение конфиденциальности информации относится к пассивным воздействиям.</p>
+            <p>Возможность подмены информации следует понимать либо как полный контроль над потоком информации между объектами системы, либо возмож-ность передачи различных сообщений от чужого имени. Следовательно, понятно, что подмена информации приводит к нарушению её целостности. Такое информационное разрушающее воздействие есть характерный пример активного воздействия. Примером же удалённой атаки, предназначенной для нарушения целостности информации, может послужить удалённая атака «Ложный объект распределённой вычислительной системы».</p>
           </article>
         </section>
-        <section class="main-section" id="What_you_should_already_know">
-          <header>What you should already know</header>
-          <article>
-            <p>This guide assumes you have the following basic background:</p>
-      
-            <ul>
-              <li>
-                A general understanding of the Internet and the World Wide Web (WWW).
-              </li>
-              <li>Good working knowledge of HyperText Markup Language (HTML).</li>
-              <li>
-                Some programming experience. If you are new to programming, try one of
-                the tutorials linked on the main page about JavaScript.
-              </li>
-            </ul>
-          </article>
-        </section>
-        <section class="main-section" id="JavaScript_and_Java">
-          <header>JavaScript and Java</header>
-          <article>
-            <p>
-              JavaScript and Java are similar in some ways but fundamentally different
-              in some others. The JavaScript language resembles Java but does not have
-              Java's static typing and strong type checking. JavaScript follows most
-              Java expression syntax, naming conventions and basic control-flow
-              constructs which was the reason why it was renamed from LiveScript to
-              JavaScript.
-            </p>
-      
-            <p>
-              In contrast to Java's compile-time system of classes built by
-              declarations, JavaScript supports a runtime system based on a small
-              number of data types representing numeric, Boolean, and string values.
-              JavaScript has a prototype-based object model instead of the more common
-              class-based object model. The prototype-based model provides dynamic
-              inheritance; that is, what is inherited can vary for individual objects.
-              JavaScript also supports functions without any special declarative
-              requirements. Functions can be properties of objects, executing as
-              loosely typed methods.
-            </p>
-            <p>
-              JavaScript is a very free-form language compared to Java. You do not
-              have to declare all variables, classes, and methods. You do not have to
-              be concerned with whether methods are public, private, or protected, and
-              you do not have to implement interfaces. Variables, parameters, and
-              function return types are not explicitly typed.
-            </p>
-          </article>
-        </section>
-        <section class="main-section" id="Hello_world">
-          <header>Hello world</header>
-          <article>
-            To get started with writing JavaScript, open the Scratchpad and write your
-            first "Hello world" JavaScript code:
-            <code
-              >function greetMe(yourName) { alert("Hello " + yourName); }
-              greetMe("World");
-            </code>
-      
-            Select the code in the pad and hit Ctrl+R to watch it unfold in your
-            browser!
-          </article>
-        </section>
-        <section class="main-section" id="Variables">
-          <header>Variables</header>
+        <section class="main-section" id="По_наличию_обратной_связи">
+          <header>По наличию обратной связи</header>
           <p>
-            You use variables as symbolic names for values in your application. The
-            names of variables, called identifiers, conform to certain rules.
+            Атакующий отправляет некоторые запросы на атакуемый объект, на которые ожидает получить ответ. Следовательно, между атакующим и атакуемым появляется обратная связь, позволяющая первому адекватно реагировать на всяческие изменения на атакуемом объекте. Подобные атаки наиболее характерны для распределённых вычислительных систем.
           </p>
           <p>
-            A JavaScript identifier must start with a letter, underscore (_), or
-            dollar sign ($); subsequent characters can also be digits (0-9). Because
-            JavaScript is case sensitive, letters include the characters "A" through
-            "Z" (uppercase) and the characters "a" through "z" (lowercase).
-          </p>
-          <p>
-            You can use ISO 8859-1 or Unicode letters such as å and ü in identifiers.
-            You can also use the Unicode escape sequences as characters in
-            identifiers. Some examples of legal names are Number_hits, temp99, and
-            _name.
+            Атаки без обратной связи характерны тем, что им не требуется реагировать на изменения на атакуемом объекте. Такие атаки обычно осуществляются при помощи передачи на атакуемый объект одиночных запросов. Ответы на эти запросы атакующему не нужны. Подобную атаку можно назвать также однонаправленной удаленной атакой. Примером однонаправленных атак является типовая «DoS-атака».
           </p>
         </section>
-        <section class="main-section" id="Declaring_variables">
-          <header>Declaring variables</header>
-          <article>
-            You can declare a variable in three ways:
-            <p>
-              With the keyword var. For example, <code>var x = 42.</code> This syntax
-              can be used to declare both local and global variables.
-            </p>
-            <p>
-              By simply assigning it a value. For example, <code>x = 42.</code> This
-              always declares a global variable. It generates a strict JavaScript
-              warning. You shouldn't use this variant.
-            </p>
-            <p>
-              With the keyword let. For example,<code> let y = 13.</code> This syntax
-              can be used to declare a block scope local variable. See Variable scope
-              below.
-            </p>
-          </article>
-        </section>
-        <section class="main-section" id="Variable_scope">
-          <header>Variable scope</header>
+        <section class="main-section" id="По_условию_начала_осуществления_воздействия">
+          <header>По условию начала осуществления воздействия</header>
           <article>
             <p>
-              When you declare a variable outside of any function, it is called a
-              global variable, because it is available to any other code in the
-              current document. When you declare a variable within a function, it is
-              called a local variable, because it is available only within that
-              function.
+              Удалённое воздействие, также как и любое другое, может начать осуществляться только при определённых условиях. В распределённых вычислительных системах существуют три вида таких условий:
             </p>
-      
-            <p>
-              JavaScript before ECMAScript 2015 does not have block statement scope;
-              rather, a variable declared within a block is local to the function (or
-              global scope) that the block resides within. For example the following
-              code will log 5, because the scope of x is the function (or global
-              context) within which x is declared, not the block, which in this case
-              is an if statement.
-            </p>
-            <code>if (true) { var x = 5; } console.log(x); // 5</code>
-            <p>
-              This behavior changes, when using the let declaration introduced in
-              ECMAScript 2015.
-            </p>
-      
-            <code
-              >if (true) { let y = 5; } console.log(y); // ReferenceError: y is not
-              defined</code
-            >
-          </article>
-        </section>
-        <section class="main-section" id="Global_variables">
-          <header>Global variables</header>
-          <article>
-            <p>
-              Global variables are in fact properties of the global object. In web
-              pages the global object is window, so you can set and access global
-              variables using the window.variable syntax.
-            </p>
-      
-            <p>
-              Consequently, you can access global variables declared in one window or
-              frame from another window or frame by specifying the window or frame
-              name. For example, if a variable called phoneNumber is declared in a
-              document, you can refer to this variable from an iframe as
-              parent.phoneNumber.
-            </p>
-          </article>
-        </section>
-        <section class="main-section" id="Constants">
-          <header>Constants</header>
-          <article>
-            <p>
-              You can create a read-only, named constant with the const keyword. The
-              syntax of a constant identifier is the same as for a variable
-              identifier: it must start with a letter, underscore or dollar sign and
-              can contain alphabetic, numeric, or underscore characters.
-            </p>
-      
-            <code>const PI = 3.14;</code>
-            <p>
-              A constant cannot change value through assignment or be re-declared
-              while the script is running. It has to be initialized to a value.
-            </p>
-      
-            <p>
-              The scope rules for constants are the same as those for let block scope
-              variables. If the const keyword is omitted, the identifier is assumed to
-              represent a variable.
-            </p>
-      
-            <p>
-              You cannot declare a constant with the same name as a function or
-              variable in the same scope. For example:
-            </p>
-      
-            <code
-              >// THIS WILL CAUSE AN ERROR function f() {}; const f = 5; // THIS WILL
-              CAUSE AN ERROR ALSO function f() { const g = 5; var g; //statements
-              }</code
-            >
-            However, object attributes are not protected, so the following statement
-            is executed without problems.
-            <code
-              >const MY_OBJECT = {"key": "value"}; MY_OBJECT.key = "otherValue";</code
-            >
-          </article>
-        </section>
-        <section class="main-section" id="Data_types">
-          <header>Data types</header>
-          <article>
-            <p>The latest ECMAScript standard defines seven data types:</p>
             <ul>
-              <li>
-                <p>Six data types that are primitives:</p>
-                <ul>
-                  <li>Boolean. true and false.</li>
-                  <li>
-                    null. A special keyword denoting a null value. Because JavaScript
-                    is case-sensitive, null is not the same as Null, NULL, or any
-                    other variant.
-                  </li>
-                  <li>undefined. A top-level property whose value is undefined.</li>
-                  <li>Number. 42 or 3.14159.</li>
-                  <li>String. "Howdy"</li>
-                  <li>
-                    Symbol (new in ECMAScript 2015). A data type whose instances are
-                    unique and immutable.
-                  </li>
-                </ul>
-              </li>
-      
-              <li>and Object</li>
-            </ul>
-            Although these data types are a relatively small amount, they enable you
-            to perform useful functions with your applications. Objects and functions
-            are the other fundamental elements in the language. You can think of
-            objects as named containers for values, and functions as procedures that
-            your application can perform.
-          </article>
-        </section>
-        <section class="main-section" id="if...else_statement">
-          <header>if...else statement</header>
-          <article>
-            Use the if statement to execute a statement if a logical condition is
-            true. Use the optional else clause to execute a statement if the condition
-            is false. An if statement looks as follows:
-      
-            <code>if (condition) { statement_1; } else { statement_2; }</code>
-            condition can be any expression that evaluates to true or false. See
-            Boolean for an explanation of what evaluates to true and false. If
-            condition evaluates to true, statement_1 is executed; otherwise,
-            statement_2 is executed. statement_1 and statement_2 can be any statement,
-            including further nested if statements.
-            <p>
-              You may also compound the statements using else if to have multiple
-              conditions tested in sequence, as follows:
-            </p>
-            <code
-              >if (condition_1) { statement_1; } else if (condition_2) { statement_2;
-              } else if (condition_n) { statement_n; } else { statement_last; }
-            </code>
-            In the case of multiple conditions only the first logical condition which
-            evaluates to true will be executed. To execute multiple statements, group
-            them within a block statement ({ ... }) . In general, it's good practice
-            to always use block statements, especially when nesting if statements:
-      
-            <code
-              >if (condition) { statement_1_runs_if_condition_is_true;
-              statement_2_runs_if_condition_is_true; } else {
-              statement_3_runs_if_condition_is_false;
-              statement_4_runs_if_condition_is_false; }</code
-            >
-            It is advisable to not use simple assignments in a conditional expression,
-            because the assignment can be confused with equality when glancing over
-            the code. For example, do not use the following code:
-            <code>if (x = y) { /* statements here */ }</code> If you need to use an
-            assignment in a conditional expression, a common practice is to put
-            additional parentheses around the assignment. For example:
-      
-            <code>if ((x = y)) { /* statements here */ }</code>
-          </article>
-        </section>
-        <section class="main-section" id="while_statement">
-          <header>while statement</header>
-          <article>
-            A while statement executes its statements as long as a specified condition
-            evaluates to true. A while statement looks as follows:
-      
-            <code>while (condition) statement</code> If the condition becomes false,
-            statement within the loop stops executing and control passes to the
-            statement following the loop.
-      
-            <p>
-              The condition test occurs before statement in the loop is executed. If
-              the condition returns true, statement is executed and the condition is
-              tested again. If the condition returns false, execution stops and
-              control is passed to the statement following while.
-            </p>
-      
-            <p>
-              To execute multiple statements, use a block statement ({ ... }) to group
-              those statements.
-            </p>
-      
-            Example:
-      
-            <p>The following while loop iterates as long as n is less than three:</p>
-      
-            <code>var n = 0; var x = 0; while (n &lt; 3) { n++; x += n; }</code>
-            <p>
-              With each iteration, the loop increments n and adds that value to x.
-              Therefore, x and n take on the following values:
-            </p>
-      
-            <ul>
-              <li>After the first pass: n = 1 and x = 1</li>
-              <li>After the second pass: n = 2 and x = 3</li>
-              <li>After the third pass: n = 3 and x = 6</li>
+              <li>атака по запросу от атакуемого объекта</li>
+              <li>атака по наступлению ожидаемого события на атакуемом объекте</li>
+              <li>безусловная атака</li>
             </ul>
             <p>
-              After completing the third pass, the condition n &lt; 3 is no longer
-              true, so the loop terminates.
+              Воздействие со стороны атакующего начнётся при условии, что потенциальная цель атаки передаст запрос определённого типа. Такую атаку можно назвать атакой по запросу от атакуемого объекта. Данный тип атаки наиболее характерен для распределённых вычислительных систем. Примером подобных запросов в сети Интернет может служить DNS- и ARP-запросы, а в Novell NetWare — SAP-запрос.
+            </p>
+            <p>Атака по наступлению ожидаемого события на атакуемом объекте. Атакующий непрерывно наблюдает за состоянием ОС удалённой цели атаки и начинает воздействие при возникновении конкретного события в этой системе. Атакуемый объект сам является инициатором начала атаки. Примером такого события может быть прерывание сеанса работы пользователя с сервером без выдачи команды LOGOUT в Novell NetWare.</p>
+            <p>Безусловная атака осуществляется немедленно и безотносительно к состоянию операционной системы и атакуемого объекта. Следовательно, атакующий является инициатором начала атаки в данном случае.</p>
+            <p>При нарушении нормальной работоспособности системы преследуются другие цели и получение атакующим незаконного доступа к данным не предполагается. Его целью является вывод из строя ОС на атакуемом объекте и невозможность доступа для остальных объектов системы к ресурсам этого объекта. Примером атаки такого вида может служить «DoS-атака».</p>
+          </article>
+        </section>
+        <section class="main-section" id="По_расположению_субъекта_атаки_относительно_атакуемого_объекта">
+          <header>По расположению субъекта атаки относительно атакуемого 
+            объекта
+            </header>
+          <article>
+            <p>
+              Для начала следует определиться с некоторыми терминами.
+            </p>
+            <p>Источник атаки (субъект атаки) — программа (возможно оператор), ве-дущая атаку и осуществляющая непосредственное воздействие.</p>
+            <p>Хост (host) — компьютер, являющийся элементом сети.</p>
+            <p>Маршрутизатор (router) — устройство, которое обеспечивает маршрути-зацию пакетов в сети.</p>
+            <p>Подсетью (subnetwork) называется группа хостов, являющихся частью глобальной сети, отличающихся тем, что маршрутизатором для них выделен одинаковый номер подсети. Так же можно сказать, что подсеть есть логическое объединение хостов посредством маршрутизатора. Хосты внутри одной подсети могут непосредственно взаимодействовать между собой, не задействовав при этом маршрутизатор.</p>
+            <p>Сегмент сети — объединение хостов на физическом уровне.</p>
+            <p>
+              JС точки зрения удалённой атаки крайне важным является взаимное расположение субъекта и объекта атаки, то есть находятся ли они в разных или в одинаковых сегментах. Во время внутрисегментной атаки, субъект и объект атаки располагаются в одном сегменте. В случае межсегментной атаки субъект и объект атаки находятся в разных сетевых сегментах. Этот классификационный признак дает возможность судить о так называемой «степени удалённости» атаки.
             </p>
           </article>
         </section>
-        <section class="main-section" id="Function_declarations">
-          <header>Function declarations</header>
+        <section class="main-section" id="Краткое_описание_некоторых_сетевых_атак">
+          <header>Краткое описание некоторых сетевых атак</header>
+        </section>
+        <section class="main-section" id="Фрагментация_данных">
+          <header>Фрагментация данных</header>
           <article>
-            A function definition (also called a function declaration, or function
-            statement) consists of the function keyword, followed by:
-      
-            <ul>
-              <li>The name of the function.</li>
-              <li>
-                A list of arguments to the function, enclosed in parentheses and
-                separated by commas.
-              </li>
-              <li>
-                The JavaScript statements that define the function, enclosed in curly
-                brackets, { }.
-              </li>
-            </ul>
             <p>
-              For example, the following code defines a simple function named square:
-            </p>
-      
-            <code>function square(number) { return number * number; }</code>
-            <p>
-              The function square takes one argument, called number. The function
-              consists of one statement that says to return the argument of the
-              function (that is, number) multiplied by itself. The return statement
-              specifies the value returned by the function.
-            </p>
-            <code>return number * number;</code>
-            <p>
-              Primitive parameters (such as a number) are passed to functions by
-              value; the value is passed to the function, but if the function changes
-              the value of the parameter, this change is not reflected globally or in
-              the calling function.
+              При передаче пакета данных протокола IP по сети может осуществляться деление этого пакета на несколько фрагментов. Впоследствии, при дости-жении адресата, пакет восстанавливается из этих фрагментов. Злоумышленник может инициировать посылку большого числа фрагментов, что приводит к переполнению программных буферов на приемной стороне и, в ряде случаев, к аварийному завершению системы.
             </p>
           </article>
         </section>
-        <section class="main-section" id="Reference">
-          <header>Reference</header>
+        <section class="main-section" id="Ping_flooding">
+          <header>Ping flooding</header>
           <article>
-            <ul>
-              <li>
-                All the documentation in this page is taken from
-                <a
-                  href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide"
-                  target="_blank"
-                  >MDN</a
-                >
-              </li>
-            </ul>
+            <p>Данная атака требует от злоумышленника доступа к быстрым каналам в Интернет.</p>
+            <p>Программа ping посылает ICMP-пакет типа ECHO REQUEST, выставляя в нем время и его идентификатор. Ядро машины-получателя отвечает на подобный запрос пакетом ICMP ECHO REPLY. Получив его, ping выдает скорость прохождения пакета.</p>
+            <p>При стандартном режиме работы пакеты высылаются через некоторые промежутки времени, практически не нагружая сеть. Но в «агрессивном» ре-жиме поток ICMP echo request/reply-пакетов может вызвать перегрузку небольшой линии, лишив ее способности передавать полезную информацию.</p>
+          </article>
+        </section>
+        <section class="main-section" id="Smurf">
+          <header>Smurf</header>
+          <article>
+            <p>
+              Атака smurf заключается в передаче в сеть широковещательных ICMP запросов от имени компьютера-жертвы. В результате компьютеры, приняв-шие такие широковещательные пакеты, отвечают компьютеру-жертве, что приводит к существенному снижение пропускной способности канала связи и, в ряде случаев, к полной изоляции атакуемой сети. Атака smurf исключи-тельно эффективна и широко распространена.
+            </p>
+          </article>
+        </section>
+        <section class="main-section" id="DNS_spoofing">
+          <header>DNS spoofing</header>
+          <article>
+            <p>
+              Результатом данной атаки является внесение навязываемого соответствия между IP-адресом и доменным именем в кэш DNS сервера. В результате успешного проведения такой атаки все пользователи DNS сервера получат неверную информацию о доменных именах и IP-адресах. Данная атака ха-рактеризуется большим количеством DNS пакетов с одним и тем же домен-ным именем. Это связано с необходимостью подбора некоторых параметров DNS обмена.
+            </p>
+          </article>
+        </section>
+        <section class="main-section" id="IP_spoofing">
+          <header>IP spoofing</header>
+          <article>
+            <p>
+              IP-спуфинг происходит, когда хакер, находящийся внутри системы или вне ее выдает себя за санкционированного пользователя. Это можно сделать двумя способами. Во-первых, хакер может воспользоваться IP-адресом, на-ходящимся в пределах диапазона санкционированных IP-адресов, или авто-ризованным внешним адресом, которому разрешается доступ к определенным сетевым ресурсам. Атаки IP-спуфинга часто являются отправной точкой для прочих атак. Классический пример - атака DoS, которая начинается с чужого адреса, скрывающего истинную личность хакера.
+            </p>
+            <p>
+              Обычно IP-спуфинг ограничивается вставкой ложной информации или вредоносных команд в обычный поток данных, передаваемых между клиент-ским и серверным приложением или по каналу связи между одноранговыми устройствами. Для двусторонней связи хакер должен изменить все таблицы маршрутизации, чтобы направить трафик на ложный IP-адрес. Некоторые ха-керы, однако, даже не пытаются получить ответ от приложений. Если главная задача состоит в получении от системы важного файла, ответы приложений не имеют значения.
+            </p>
+            <p>
+              Если же хакеру удается поменять таблицы маршрутизации и направить трафик на ложный IP-адрес, хакер получит все пакеты и сможет отвечать на них так, будто он является санкционированным пользователем.
+            </p>
+          </article>
+        </section>
+        <section class="main-section" id="Sniffing">
+          <header>Sniffing</header>
+          <article>
+            <p>
+              Практически все сетевые карты поддерживают возможность перехвата пакетов, передаваемых по общему каналу локальной сети. При этом рабочая станция может принимать пакеты, адресованные другим компьютерам того же сегмента сети. Сниффер пакетов представляет собой прикладную программу, которая использует сетевую карту, работающую в режиме promiscuous mode (в этом режиме все пакеты, полученные по физическим каналам, сетевой адаптер отправляет приложению для обработки). При этом сниффер перехватывает все сетевые пакеты, которые передаются через определенный домен.
+            </p>
+            <p>
+              Таким образом, весь информационный обмен в сегменте сети становится доступным злоумышленнику. Для успешной реализации этой атаки компью-тер злоумышленника должен располагаться в том же сегменте локальной се-ти, что и атакуемый компьютер.
+            </p>
+          </article>
+        </section>
+        <section class="main-section" id="Перехват_пакетов_на_маршрутизаторе">
+          <header>Перехват пакетов на маршрутизаторе</header>
+          <article>
+            <p>
+              Сетевое программное обеспечение маршрутизатора имеет доступ ко всем сетевым пакетам, передаваемым через данный маршрутизатор, что позволяет осуществлять перехват пакетов. Для реализации этой атаки злоумышленник должен иметь привилегированный доступ хотя бы к одному маршрутизатору сети. Поскольку через маршрутизатор обычно передается очень много пакетов, тотальный их перехват практически невозможен. Однако отдельные пакеты вполне могут быть перехвачены и сохранены для последующего анализа злоумышленником. Наиболее эффективен перехват пакетов FTP, содержащих пароли пользователей, а также электронной почты.
+            </p>
+          </article>
+        </section>
+        <section class="main-section" id="Навязывание_хосту_ложного_маршрута">
+          <header>Навязывание хосту ложного маршрута</header>
+          <article>
+            <p>
+              В сети Интернет существует специальный протокол ICMP (Internet Control Message Protocol), одной из функцией которого является информирование хостов о смене текущего маршрутизатора. Данное управляющее сообщение носит название redirect. Существует возможность посылки с любого хоста в сегменте сети ложного redirect-сообщения от имени маршрутизатора на атакуемый хост. В результате у хоста изменяется текущая таблица маршрутизации и, в дальнейшем, весь сетевой трафик данного хоста будет проходить, например, через хост, отославший ложное redirect-сообщение. Таким образом, возможно осуществить активное навязывание ложного маршрута внутри одного сегмента сети Интернет.
+            </p>
+          </article>
+        </section>
+        <section class="main-section" id="Подмена_доверенного_хоста">
+          <header>Подмена доверенного хоста</header>
+          <article>
+            <p>
+              Успешное осуществление удалённых атак этого типа позволит зло-умышленнику вести сеанс работы с сервером от имени доверенного хоста. (Доверенный хост — станция, легально подключившаяся к серверу). Реали-зация данного вида атак обычно состоит в посылке пакетов обмена со станции злоумышленника от имени доверенной станции, находящейся под его контролем.
+            </p>
+          </article>
+        </section>
+        <section class="main-section" id="Список_использованной_литературы">
+          <header>Список использованной литературы</header>
+          <article>
+            <ol>
+              <li>Медведовский И. Д., Семьянов П. В., Платонов В. В. Атака через Internet / Под. ред. проф. П. Д. Зегжды. – НПО «Мир и семья–95», 1997.</li>
+              <li>Шаньгин В. Ф. Информационная безопасность компьютерных систем и сетей. – М.: ИД «ФОРУМ»: ИНФРА-М, 2008. – 416 с.</li>
+              <li>В. П. Мельников, под. ред. С.А.Клейменова. Информационная безопасность и защита информации. – М.: Издательский центр «Академия», 2008. – 336 с.</li>
+              <li>Семенов Ю. А. Протоколы и ресурсы Internet. – М.: Радио и связь, 1996. – 320 с.</li>
+              <li>Медведовский И. Д., Семьянов П. В., Платонов В. В. АТАКА ЧЕРЕЗ INTERNET . </li>
+              <li>Шаньгин В. Ф. Информационная безопасность компьютерных систем и сетей. Журнал "Information Security/ Информационная безопасность", 2013  </li>
+              <li>Константин Пьянзин Классификация межсетевых экранов[Электронный ресурс] /. Константин Пьянзин - Режим доступа : http://www.osp.ru/lan/1999/09/134421/, свободный . </li>
+              <li>Семенов Ю. А. Протоколы и ресурсы Internet. - М.: Радио и связь, 1996. - 320 с. . </li>
+              <li>Гафнер В.В. Информационная безопасность: учеб. пособие. - Ростов на Дону: Феникс, 2010. - 324 с.</li>
+              <li>Джон Д. Рули и др. Сети Windows NT 4.0. Пер. с англ. - К.: Изда-тельская группа BHV, 1998. - 800 с. . </li>
+              <li>Галицкий А. В., Рябко С. Д., Шаньгин В. Ф. Защита информации в сети - анализ технологий и синтез решений. М.: ДМК Пресс, 2004. - 616 с. . </li>
+            </ol>
           </article>
         </section>
       </main>

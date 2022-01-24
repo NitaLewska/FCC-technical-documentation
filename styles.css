@@ -54,6 +54,11 @@ header {
   cursor: pointer;
 }
 
+.small {
+  font-size: smaller;
+  margin-left: 10px;
+}
+
 #main-doc {
   position: absolute;
   margin-left: 310px;
